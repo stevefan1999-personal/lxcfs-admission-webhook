@@ -138,7 +138,7 @@ var volumesTemplate = []corev1.Volume{
 		Name: "lxcfs-proc-loadavg",
 		VolumeSource: corev1.VolumeSource{
 			HostPath: &corev1.HostPathVolumeSource{
-				Path: "/	var/lib/lxcfs/proc/loadavg",
+				Path: "/var/lib/lxcfs/proc/loadavg",
 			},
 		},
 	},

@@ -70,6 +70,16 @@ var volumeMountsTemplate = []corev1.VolumeMount{
 		ReadOnly:  true,
 	},
 	{
+		Name:      "lxcfs-proc-slabinfo",
+		MountPath: "/proc/slabinfo",
+		ReadOnly:  true,
+	},
+	{
+		Name:      "lxcfs-sys-devices-system-cpu",
+		MountPath: "/sys/devices/system/cpu",
+		ReadOnly:  true,
+	},
+	{
 		Name:      "lxcfs-sys-devices-system-cpu-online",
 		MountPath: "/sys/devices/system/cpu/online",
 		ReadOnly:  true,
@@ -128,7 +138,23 @@ var volumesTemplate = []corev1.Volume{
 		Name: "lxcfs-proc-loadavg",
 		VolumeSource: corev1.VolumeSource{
 			HostPath: &corev1.HostPathVolumeSource{
-				Path: "/var/lib/lxcfs/proc/loadavg",
+				Path: "/	var/lib/lxcfs/proc/loadavg",
+			},
+		},
+	},
+	{
+		Name: "lxcfs-proc-slabinfo",
+		VolumeSource: corev1.VolumeSource{
+			HostPath: &corev1.HostPathVolumeSource{
+				Path: "/var/lib/lxcfs/proc/slabinfo",
+			},
+		},
+	},
+	{
+		Name: "lxcfs-sys-devices-system-cpu",
+		VolumeSource: corev1.VolumeSource{
+			HostPath: &corev1.HostPathVolumeSource{
+				Path: "/var/lib/lxcfs/sys/devices/system/cpu",
 			},
 		},
 	},
